@@ -1,3 +1,8 @@
+/**
+ * Simple web microservice with ExpressJS that gets some inputs from users
+ * and sends it to a Kafka topic
+ */
+
 const express = require('express')
 const kafka = require('kafka-node')
 const app = express()
@@ -11,6 +16,9 @@ var producer = new Producer(client)
 const port = 3000
 
 app.get('/', (req, res) => res.send('Type your message in the route/address bar'))
+
+// Get route parameter (message) that user entered in browser 
+// and send it to the 'web' Kafka topic
 producer.on('ready', function () {
     app.get('/:message', (req, res) => {
         var msg = req.params.message

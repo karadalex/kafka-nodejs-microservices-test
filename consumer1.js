@@ -1,6 +1,12 @@
+/**
+ * This is a simple consumer: 
+ * it is subscribed to the 'web' topic and prints every value
+ */
+
 const kafka = require('kafka-node')
 const Consumer = kafka.Consumer
 const client = new kafka.Client('192.168.1.3:2181')
+
 
 var topics = [
     { topic: 'web', partition: 0 }

@@ -22,10 +22,10 @@ producer.on('ready', function () {
             }
         ]
         producer.send(payloads, function (err, data) {
-            console.log(data)
+            console.log('web-producer: '+data)
         })
         producer.on('error', function (err) {
-            console.log(err)
+            console.log('web-producer: '+err)
         })
 
         res.send(`Your message is ${msg}`)
